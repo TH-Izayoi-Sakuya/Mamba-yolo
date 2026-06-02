@@ -28,7 +28,7 @@ pip install mamba-ssm
 - `pred.py`: Script for qualitative visualization and inference.
 
 
-## 🗄️ Dataset Preparation
+##  Dataset Preparation
 We evaluate our model on polyp segmentation datasets (e.g., Kvasir-SEG, CVC-ClinicDB, PolypDB). 
 Since YOLOv8 requires polygon-based label formats (TXT) rather than binary masks, we provide a robust conversion script.
 
