@@ -86,10 +86,10 @@ def _forward_fuse_impl(self, x):
     return self.act(self.conv(x))
 
 def patch_all_conv_classes_forward_fuse(verbose: bool = False) -> int:
-    “””
+    '''
     Patch forward_fuse onto all classes named “Conv” in the current Python process,
     so model.fuse() won't fail/skip due to missing forward_fuse.
-    “””
+    '''
     checked = 0
     patched = 0
     for m in list(sys.modules.values()):
