@@ -61,3 +61,16 @@ python pred.py
 ```
 Ensure you have updated `MODEL_PATH`, `IMAGE_DIR`, and `OUT_DIR` within the script to match your local environment before running.
 
+##  Citation
+If you find this code useful for your research, please consider citing our paper once published:
+
+```bibtex
+@article{zhang2024boundary,
+  title={Boundary-Aware Lightweight Global-Context Segmentation for Small Colorectal Polyps in Colonoscopy Images},
+  author={Zhang, Wentao and Tao, Maohu and Qin, Tao and Zhang, Yanduo},
+  journal={The Visual Computer},
+  year={2024},
+  publisher={Springer}
+}
+```
+*(The citation details will be updated upon publication.)*
