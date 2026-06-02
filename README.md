@@ -1,14 +1,6 @@
 # GhostConv-Mamba-YOLO
 
 
-Official PyTorch implementation for the paper:  
-**"Boundary-Aware Lightweight Global-Context Segmentation for Small Colorectal Polyps in Colonoscopy Images"**
-
----
-
-##  Note for Reviewers
-This codebase is actively prepared and maintained for our submission to the journal ***The Visual Computer***/ To fully address the requirements for scientific reproducibility and long-term archiving, a permanent DOI and the pre-trained weights will be synchronized via Zenodo immediately upon the formal acceptance of this manuscript.
-
 ##  Environment Setup
 The code is built on top of the `ultralytics` framework with customized State-Space Models (Mamba).
 
