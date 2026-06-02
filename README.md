@@ -69,7 +69,7 @@ If you find this code useful for your research, please consider citing our paper
   title={Boundary-Aware Lightweight Global-Context Segmentation for Small Colorectal Polyps in Colonoscopy Images},
   author={Zhang, Wentao and Tao, Maohu and Qin, Tao and Zhang, Yanduo},
   journal={The Visual Computer},
-  year={2024},
+  year={2026},
   publisher={Springer}
 }
 ```
