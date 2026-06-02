@@ -1,7 +1,5 @@
 # GhostConv-Mamba-YOLO
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.xxxxxxx.svg)](https://doi.org/10.5281/zenodo.xxxxxxx)
-*(Note: The active DOI link will be updated upon formal acceptance of the manuscript.)*
 
 Official PyTorch implementation for the paper:  
 **"Boundary-Aware Lightweight Global-Context Segmentation for Small Colorectal Polyps in Colonoscopy Images"**
