@@ -1,6 +1,5 @@
 # GhostConv-Mamba-YOLO
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20507899.svg)](https://doi.org/10.5281/zenodo.20507899)
 [![DOI](https://zenodo.org/badge/1256952707.svg)](https://doi.org/10.5281/zenodo.20507899)
 
 ##  Environment Setup
