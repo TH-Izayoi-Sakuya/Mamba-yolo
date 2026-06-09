@@ -3,22 +3,43 @@
 [![DOI](https://zenodo.org/badge/1256952707.svg)](https://doi.org/10.5281/zenodo.20507899)
 
 ##  Environment Setup
-The code is built on top of the `ultralytics` framework with customized State-Space Models (Mamba).
+The code is built on top of the `ultralytics` framework with customized State-Space Models (Mamba). Due to the strict compilation requirements of Mamba, we provide specific installation instructions.
 
 **Dependencies:**
-- Python >= 3.8
-- PyTorch >= 1.13.0
+- Python == 3.10
+- PyTorch == 2.1.1
 - [Ultralytics](https://github.com/ultralytics/ultralytics) >= 8.0.0
-- `mamba_ssm` and `causal_conv1d` (for MambaBlock2D)
-- Additional evaluation tools: `thop`, `scikit-learn`, `opencv-python`
+- Additional tools: `thop`, `scikit-learn`, `opencv-python`
 
-**Installation:**
+**Installation (Windows User Guide):**
+Since compiling `mamba_ssm` and `causal_conv1d` from scratch on Windows often causes errors, we highly recommend using pre-compiled `.whl` files. Please download the pre-compiled `.whl` files (Triton, causal_conv1d, mamba_ssm) from our repository's Release page or the provided links before proceeding.
+
 ```bash
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+# 1. Create and activate a Conda environment
+conda create -n mamba python=3.10
+conda activate mamba
+
+# 2. Install PyTorch and CUDA toolkit
+conda install cudatoolkit==11.8
+pip install torch==2.1.1 torchvision==0.16.1 torchaudio==2.1.1 --index-url https://download.pytorch.org/whl/cu118
+
+# 3. Handle Setuptools and Packaging dependencies
+pip install setuptools==68.2.2
+conda install packaging
+
+# 4. Install pre-compiled wheels from your local directory
+# (Please navigate to the directory where you downloaded the .whl files)
+pip install triton-2.0.0-cp310-cp310-win_amd64.whl
+pip install causal_conv1d-1.1.1-cp310-cp310-win_amd64.whl
+pip install mamba_ssm-1.1.3-cp310-cp310-win_amd64.whl
+
+# 5. Prevent Numpy version conflict
+pip install "numpy<2.0"
+
+# 6. Install remaining dependencies
 pip install ultralytics opencv-python scikit-learn thop
-pip install causal-conv1d>=1.0.0
-pip install mamba-ssm
 ```
+*Verification:* Run `python -c "import mamba_ssm; print('Import successful!')"` to ensure Mamba is installed correctly.
 
 ##  Repository Structure
 - `mamba_yolo_scca_ghost_seg.yaml`: The core network architecture combining GhostConv, C2f, MambaBlock2D, and SPPF.
@@ -27,7 +48,6 @@ pip install mamba-ssm
 - `train_seg.py`: The main entry script for model training.
 - `eval_dice_miou.py`: Comprehensive evaluation script for computing standard metrics (Dice, mIoU) and boundary-specific metrics (HD95, ASSD, Boundary-F), as well as hardware efficiency (Params, FLOPs, FPS).
 - `pred.py`: Script for qualitative visualization and inference.
-
 
 ##  Dataset Preparation
 We evaluate our model on polyp segmentation datasets (e.g., Kvasir-SEG, CVC-ClinicDB, PolypDB). 
@@ -42,7 +62,7 @@ python prepare_masks_to_yoloseg.py
 
 ##  Training
 To train the GhostConv-Mamba-YOLO model from scratch, execute:
-``bash
+```bash
 python train_seg.py
 ```
 *Note: The `train_seg.py` automatically registers the custom modules and overrides the default Ultralytics loss function with our `SegTrainerWithBDC`.*
@@ -65,10 +85,10 @@ Ensure you have updated `MODEL_PATH`, `IMAGE_DIR`, and `OUT_DIR` within the scri
 If you find this code useful for your research, please consider citing our paper once published:
 
 ```bibtex
-@article{zhang2024boundary,
+@article{zhang2026boundary,
   title={Boundary-Aware Lightweight Global-Context Segmentation for Small Colorectal Polyps in Colonoscopy Images},
   author={Zhang, Wentao and Tao, Maohu and Qin, Tao and Zhang, Yanduo},
-  journal={The Visual Computer},
+  journal={Pattern Analysis and Applications},
   year={2026},
   publisher={Springer}
 }
