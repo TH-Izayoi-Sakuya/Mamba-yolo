@@ -12,7 +12,8 @@ The code is built on top of the `ultralytics` framework with customized State-Sp
 - Additional tools: `thop`, `scikit-learn`, `opencv-python`
 
 **Installation (Windows User Guide):**
-Since compiling `mamba_ssm` and `causal_conv1d` from scratch on Windows often causes errors, we highly recommend using pre-compiled `.whl` files. Please download the pre-compiled `.whl` files (Triton, causal_conv1d, mamba_ssm) from our repository's Release page or the provided links before proceeding.
+Since compiling `mamba_ssm` and `causal_conv1d` from scratch on Windows often causes errors, we highly recommend using pre-compiled `.whl` files.
+**🚨 Important:** All required pre-compiled `.whl` files (Triton, causal_conv1d, mamba_ssm) are explicitly provided in the [GitHub Releases](https://github.com/TH-Izayoi-Sakuya/Mamba-yolo/releases) page of this repository. Please download them to your local directory before running the commands below.
 
 ```bash
 # 1. Create and activate a Conda environment
@@ -27,16 +28,18 @@ pip install torch==2.1.1 torchvision==0.16.1 torchaudio==2.1.1 --index-url https
 pip install setuptools==68.2.2
 conda install packaging
 
-# 4. Install pre-compiled wheels from your local directory
-# (Please navigate to the directory where you downloaded the .whl files)
+# 4. Navigate to the directory where you downloaded the .whl files from our Release page
+cd path/to/your/downloaded/whl_files
+
+# 5. Install the pre-compiled wheels
 pip install triton-2.0.0-cp310-cp310-win_amd64.whl
 pip install causal_conv1d-1.1.1-cp310-cp310-win_amd64.whl
 pip install mamba_ssm-1.1.3-cp310-cp310-win_amd64.whl
 
-# 5. Prevent Numpy version conflict
+# 6. Prevent Numpy version conflict
 pip install "numpy<2.0"
 
-# 6. Install remaining dependencies
+# 7. Install remaining dependencies
 pip install ultralytics opencv-python scikit-learn thop
 ```
 *Verification:* Run `python -c "import mamba_ssm; print('Import successful!')"` to ensure Mamba is installed correctly.
